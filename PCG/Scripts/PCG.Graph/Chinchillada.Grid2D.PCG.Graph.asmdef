@@ -1,0 +1,23 @@
+{
+    "name": "Chinchillada.Grid2D.PCG.Graph",
+    "references": [
+        "GUID:b8e24fd1eb19b4226afebb2810e3c19b",
+        "GUID:1eaec2d7d70f722408cb2417d51f1005",
+        "GUID:c03f40f865ece494193d07c65510bbd0",
+        "GUID:0c2104d497adab84e844c7d64cae9cfe",
+        "GUID:1b6375c38e60f984c9c35e7bf8f4056e",
+        "GUID:8172ca02c1ad6d64b8c6a304f93c8c26",
+        "GUID:44c623df1662ef04d94d0f80796809e1",
+        "GUID:14a8581f042d7404491d2f55d4fbeddb",
+        "GUID:f4290a617faf5e54fa18e02bd818dd27"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

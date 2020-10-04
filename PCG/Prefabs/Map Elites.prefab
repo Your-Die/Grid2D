@@ -1,0 +1,458 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1257702708401620443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1257702708401620440}
+  - component: {fileID: 1257702708401620438}
+  - component: {fileID: 1257702708401620441}
+  - component: {fileID: 1257702708401620439}
+  m_Layer: 0
+  m_Name: Map Elites
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1257702708401620440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257702708401620443}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -458.75, y: -263.125, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6138982662831598710}
+  - {fileID: 1257702709326193065}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1257702708401620438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257702708401620443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6825cb61db914637ba8a6be2921614f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 3830347619986494235}
+    - {fileID: 1257702708401620439}
+    - {fileID: 1257702709326193060}
+    - {fileID: 1257702708401620441}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: initialPopulationGenerator
+      Entry: 10
+      Data: 0
+    - Name: fitnessEvaluator
+      Entry: 7
+      Data: 0|Chinchillada.Generation.Evolution.Grid.DistributionFitness, Chinchillada.Generation
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: parentSelector
+      Entry: 10
+      Data: 1
+    - Name: offspringGenerator
+      Entry: 10
+      Data: 2
+    - Name: survivorSelector
+      Entry: 10
+      Data: 1
+    - Name: terminationEvaluator
+      Entry: 10
+      Data: 3
+  asyncUpdate: 0.01
+  offspringCount: 90
+  initialPopulationCount: 100
+--- !u!114 &1257702708401620441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257702708401620443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10c35ba705140dbb9e9602556192b33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1257702708401620438}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: evolutionController
+      Entry: 10
+      Data: 0
+  generationCount: 100
+--- !u!114 &1257702708401620439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257702708401620443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b011b22d416e42f2bb620b808a8dda55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1257702708401620438}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: diversityX
+      Entry: 7
+      Data: 0|Chinchillada.Generation.Evolution.MapElites`1+MetricAxis[[Chinchillada.Generation.Grid.Grid2D,
+        Chinchillada.Generation]], Chinchillada.Generation
+    - Name: metric
+      Entry: 7
+      Data: 1|Chinchillada.Generation.Evolution.Grid.CountFitness, Chinchillada.Generation
+    - Name: targetType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: range
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: binCount
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: diversityY
+      Entry: 7
+      Data: 2|Chinchillada.Generation.Evolution.MapElites`1+MetricAxis[[Chinchillada.Generation.Grid.Grid2D,
+        Chinchillada.Generation]], Chinchillada.Generation
+    - Name: metric
+      Entry: 7
+      Data: 3|Chinchillada.Generation.Evolution.Grid.CountFitness, Chinchillada.Generation
+    - Name: targetType
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: range
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: binCount
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: evolution
+      Entry: 10
+      Data: 0
+--- !u!1 &1257702709326193064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1257702709326193065}
+  - component: {fileID: 1257702709326193060}
+  - component: {fileID: 1257702709326193063}
+  - component: {fileID: 1257702709326193062}
+  m_Layer: 0
+  m_Name: Offspring generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1257702709326193065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257702709326193064}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1257702708401620440}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1257702709326193060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257702709326193064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39d1b2e037e04f31a36356dbd5ba1302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1257702709326193063}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: crossover
+      Entry: 6
+      Data: 
+    - Name: mutators
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Chinchillada.Generation.Evolution.Mutator`1[[Chinchillada.Generation.Grid.Grid2D,
+        Chinchillada.Generation]], Chinchillada.Generation]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &1257702709326193063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257702709326193064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a811cff43664624b95268527bd14016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1257702709326193062}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: valueDistribution
+      Entry: 10
+      Data: 0
+  chance: 1
+  pixelMutationChance: 0.1
+--- !u!114 &1257702709326193062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257702709326193064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02ebd8a06f04e43b7f52bbfe19626a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: colorScheme
+      Entry: 7
+      Data: 0|ColorManagerReference, Chinchillada.Generation
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!1001 &1257702708062609370
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1257702708401620440}
+    m_Modifications:
+    - target: {fileID: 2620075936851201217, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620075936851201217, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620075936851201217, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 2620075936851201217, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+    - target: {fileID: 2620075936851201217, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 3114952806229515021}
+    - target: {fileID: 2620075936851201217, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"valueDistribution","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3384632500575372713, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: m_Name
+      value: Simple Grid Generator
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201516374707979479, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 4201516374707979479, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+    - target: {fileID: 4919705163520127916, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919705163520127916, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919705163520127916, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919705163520127916, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919705163520127916, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919705163520127916, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919705163520127916, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919705163520127916, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919705163520127916, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919705163520127916, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919705163520127916, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8e6e9b1fa56069646a3f8c8287ad4362, type: 3}
+--- !u!4 &6138982662831598710 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4919705163520127916, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+    type: 3}
+  m_PrefabInstance: {fileID: 1257702708062609370}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3830347619986494235 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2620075936851201217, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+    type: 3}
+  m_PrefabInstance: {fileID: 1257702708062609370}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cca330fb12b4e7bbe97bfde3c982706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3114952806229515021 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4201516374707979479, guid: 8e6e9b1fa56069646a3f8c8287ad4362,
+    type: 3}
+  m_PrefabInstance: {fileID: 1257702708062609370}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02ebd8a06f04e43b7f52bbfe19626a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
