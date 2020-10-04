@@ -8,7 +8,7 @@
   "dependencies": {
   "com.chinchillada.foundation" : "1.0.0",
   "com.chinchillada.distributions" : "1.0.0",
-  "com.chinchillada.colorscheme" : "1.0.0",
+  "com.chinchillada.colorschemes" : "1.0.0",
   "com.chinchillada.pcg" : "1.0.0",
   "com.chinchillada.pcg.graph" : "1.0.0",
   "com.github.siccity.xnode": "1.8.0"
