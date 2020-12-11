@@ -10,10 +10,10 @@ namespace Chinchillada.Generation.Evolution.Grid
     {
         [SerializeField] private float updateInterval = 0.01f;
         
-        [SerializeField, FindComponent(SearchStrategy.Anywhere)]
+        [SerializeField, FindComponent(SearchStrategy.InScene)]
         private GridEvolution evolution;
         
-        [SerializeField, FindComponent(SearchStrategy.Anywhere)]
+        [SerializeField, FindComponent(SearchStrategy.InScene)]
         private IGridRenderer gridRenderer;
 
         private IEnumerator routine;

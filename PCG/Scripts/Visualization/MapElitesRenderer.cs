@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class MapElitesRenderer : ChinchilladaBehaviour
 {
-    [SerializeField, FindComponent(SearchStrategy.Anywhere), Required]
+    [SerializeField, FindComponent(SearchStrategy.InScene), Required]
     private MapElites<Grid2D> mapElites;
 
     [SerializeField, Required] private GridImageRenderer rendererPrefab;
