@@ -4,7 +4,7 @@ using Chinchillada.Generation.Grid;
 using Chinchillada.Grid;
 using UnityEngine;
 
-namespace Chinchillada.GeneratorGraph.Grid
+namespace Generators.Grid
 {
     public class CA1DNode : GridGeneratorNode
     {

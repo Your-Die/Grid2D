@@ -4,7 +4,7 @@ using Chinchillada.Grid;
 using Foundation;
 using UnityEngine;
 
-namespace Chinchillada.GeneratorGraph.Grid
+namespace Generators.Grid
 {
     public class DownSampler : GridGeneratorNode
     {

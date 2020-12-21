@@ -5,7 +5,7 @@ using Chinchillada.Grid.Visualization;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Chinchillada.GeneratorGraph.Grid
+namespace Generators.Grid
 {
     public abstract class GridGeneratorNode : GeneratorNodeWithTexture<Grid2D>
     {

@@ -7,7 +7,7 @@ using Chinchillada.Grid;
 using UnityEngine;
 using XNode;
 
-namespace Chinchillada.GeneratorGraph.Grid
+namespace Generators.Grid
 {
     public class FloodFillNode : GridGeneratorNode
     {

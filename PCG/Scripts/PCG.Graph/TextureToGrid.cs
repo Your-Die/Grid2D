@@ -4,7 +4,7 @@ using Chinchillada.Foundation;
 using Chinchillada.Grid;
 using UnityEngine;
 
-namespace Chinchillada.GeneratorGraph.Grid
+namespace Generators.Grid
 {
     public class TextureToGrid : GridGeneratorNode
     {
