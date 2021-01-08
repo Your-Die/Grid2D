@@ -5,6 +5,8 @@ using UnityEngine;
 
 namespace Chinchillada.Grid
 {
+    using Grid = UnityEngine.Grid;
+
     [Serializable]
     public class Grid2D : IEnumerable<int>, IGrid2D<int>
     {
@@ -69,6 +71,14 @@ namespace Chinchillada.Grid
         {
             return position.x >= 0 && position.x < this.Width &&
                    position.y >= 0 && position.y < this.Height;
+        }
+
+        public Vector2Int ClampToBounds(Vector2Int point)
+        {
+            point.x = Mathf.Clamp(point.x, 0, this.width - 1);
+            point.y = Mathf.Clamp(point.y, 0, this.height - 1);
+
+            return point;
         }
 
         public GridNeighborhood GetRegion(int x, int y, int radius) => new GridNeighborhood(this, x, y, radius);
