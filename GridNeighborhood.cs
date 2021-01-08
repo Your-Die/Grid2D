@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Chinchillada.Grid
 {
-    public class GridNeighborhood : IEnumerable<(int, int)>
+    public class GridNeighborhood : IEnumerable<(int, int)>, IEnumerable<Vector2Int>
     {
         public int CenterX { get; }
         public int CenterY { get; }
@@ -14,6 +14,10 @@ namespace Chinchillada.Grid
         public int Left { get; }
         public int Right { get; }
         public int Bottom { get; }
+
+        public GridNeighborhood(Grid2D grid, Vector2Int center, int radius) : this(grid, center.x, center.y, radius)
+        {
+        }
 
         public GridNeighborhood(Grid2D grid, int centerX, int centerY, int radius)
         {
@@ -27,7 +31,14 @@ namespace Chinchillada.Grid
             this.Bottom = Mathf.Min(centerY + radius, grid.Height - 1);
         }
 
-        public IEnumerator<(int, int)> GetEnumerator()
+        public IEnumerator<Vector2Int> GetEnumerator()
+        {
+            for (var x = this.Left; x <= this.Right; x++)
+            for (var y = this.Top; y <= this.Bottom; y++)
+                yield return new Vector2Int(x, y);
+        }
+
+        IEnumerator<(int, int)> IEnumerable<(int, int)>.GetEnumerator()
         {
             for (var x = this.Left; x <= this.Right; x++)
             for (var y = this.Top; y <= this.Bottom; y++)

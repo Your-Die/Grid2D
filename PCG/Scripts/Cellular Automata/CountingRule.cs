@@ -13,7 +13,8 @@ namespace Chinchillada.Generation.Grid
 
         [SerializeField] private int output;
 
-        [Header("Neighborhood")] [SerializeField]
+        [Header("Neighborhood")]
+        [SerializeField]
         private int radius = 1;
 
         [SerializeField] private NeighborhoodType neighborhoodType;
@@ -24,14 +25,18 @@ namespace Chinchillada.Generation.Grid
 
         public int Apply(int x, int y, Grid2D grid)
         {
-            var count = CountNeighborhood(x, y, grid, this.constraintTarget, this.radius, this.neighborhoodType);
+            var count       = CountNeighborhood(x, y, grid, this.constraintTarget, this.radius, this.neighborhoodType);
             var shouldApply = this.constraint.ValidateConstraint(count);
 
             return shouldApply ? this.output : grid[x, y];
         }
 
-        public static int CountNeighborhood(int x, int y, Grid2D grid, int targetValue, int radius,
-            NeighborhoodType neighborhoodType = NeighborhoodType.Full)
+        public static int CountNeighborhood(int              x,
+                                            int              y,
+                                            Grid2D           grid,
+                                            int              targetValue,
+                                            int              radius,
+                                            NeighborhoodType neighborhoodType = NeighborhoodType.Full)
         {
             IEnumerable<int> neighbors;
             switch (neighborhoodType)
@@ -77,12 +82,10 @@ namespace Chinchillada.Generation.Grid
         {
             var region = grid.GetRegion(centerX, centerY, radius);
 
-            foreach (var (x, y) in region)
+            foreach (var cell in region)
             {
-                if (x == centerX && y == centerY)
-                    continue;
-
-                yield return grid[x, y];
+                if (cell.x != centerX || cell.y != centerY)
+                    yield return grid[cell];
             }
         }
     }
