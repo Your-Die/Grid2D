@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Chinchillada.Generation.Grid
 {
-    public class RandomGridGenerator : IterativeGeneratorComponent<Grid2D>
+    public class RandomGridGenerator : AsyncGeneratorComponentBase<Grid2D>
     {
         [SerializeField] private int width = 10;
         [SerializeField] private int height = 10;

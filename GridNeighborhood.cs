@@ -15,11 +15,11 @@ namespace Chinchillada.Grid
         public int Right { get; }
         public int Bottom { get; }
 
-        public GridNeighborhood(Grid2D grid, Vector2Int center, int radius) : this(grid, center.x, center.y, radius)
+        public GridNeighborhood(IGrid2D<int> grid, Vector2Int center, int radius) : this(grid, center.x, center.y, radius)
         {
         }
 
-        public GridNeighborhood(Grid2D grid, int centerX, int centerY, int radius)
+        public GridNeighborhood(IGrid2D<int> grid, int centerX, int centerY, int radius)
         {
             this.CenterX = centerX;
             this.CenterY = centerY;

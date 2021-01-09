@@ -14,8 +14,6 @@ namespace Chinchillada.Grid
 
     public static class GridExtensions
     {
-
-        
         public static IEnumerable<(Vector2Int, Direction)> GetNeighbors<T>(this IGrid2D<T> grid, Vector2Int node)
         {
             if (node.x > 0) yield return (new Vector2Int(node.x - 1, node.y), Direction.West);
@@ -41,6 +39,14 @@ namespace Chinchillada.Grid
             for (var x = 0; x < grid.Width; x++)
             for (var y = 0; y < grid.Height; y++)
                 yield return new Vector2Int(x, y);
+        }
+
+        public static Vector2Int ClampToBounds(this IGrid2D<int> grid, Vector2Int coordinate)
+        {
+                coordinate.x = Mathf.Clamp(coordinate.x, 0, grid.Width  - 1);
+                coordinate.y = Mathf.Clamp(coordinate.y, 0, grid.Height - 1);
+
+                return coordinate;
         }
     }
 }

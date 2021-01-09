@@ -7,11 +7,11 @@ using Random = Chinchillada.Foundation.Random;
 
 namespace Chinchillada.Generation.Grid
 {
-    public class RandomizedGridZoom : IterativeGeneratorComponent<Grid2D>
+    public class RandomizedGridZoom : AsyncGeneratorComponentBase<Grid2D>
     {
         [SerializeField] private int iterations;
 
-        [SerializeField, FindComponent] private IIterativeGenerator<Grid2D> gridGenerator;
+        [SerializeField, FindComponent] private IAsyncGenerator<Grid2D> gridGenerator;
 
         private Grid2D grid;
 

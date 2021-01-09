@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Chinchillada.Generation.Grid
 {
     [Serializable]
-    public class CA1DGridGenerator : IterativeGeneratorBase<Grid2D>
+    public class CA1DGridGenerator : AsyncGeneratorBase<Grid2D>
     {
         [SerializeField] private CellularAutomata1D<int> automaton;
 
