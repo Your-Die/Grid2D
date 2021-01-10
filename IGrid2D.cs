@@ -4,11 +4,13 @@ using UnityEngine;
 
 namespace Chinchillada.Grid
 {
+    using Foundation.RNG;
+
     public interface IGrid2D<T>
     {
         int Height { get; }
         int Width { get; set; }
-        T this[int x, int y] { get; set; }
+        T this[int        x, int y] { get; set; }
         T this[Vector2Int position] { get; set; }
     }
 
@@ -16,9 +18,9 @@ namespace Chinchillada.Grid
     {
         public static IEnumerable<(Vector2Int, Direction)> GetNeighbors<T>(this IGrid2D<T> grid, Vector2Int node)
         {
-            if (node.x > 0) yield return (new Vector2Int(node.x - 1, node.y), Direction.West);
-            if (node.y > 0) yield return (new Vector2Int(node.x, node.y - 1), Direction.South);
-            if (node.x < grid.Width - 1) yield return (new Vector2Int(node.x + 1, node.y), Direction.East);
+            if (node.x > 0) yield return (new Vector2Int(node.x                       - 1, node.y), Direction.West);
+            if (node.y > 0) yield return (new Vector2Int(node.x, node.y               - 1), Direction.South);
+            if (node.x < grid.Width  - 1) yield return (new Vector2Int(node.x         + 1, node.y), Direction.East);
             if (node.y < grid.Height - 1) yield return (new Vector2Int(node.x, node.y + 1), Direction.South);
         }
 
@@ -43,10 +45,22 @@ namespace Chinchillada.Grid
 
         public static Vector2Int ClampToBounds(this IGrid2D<int> grid, Vector2Int coordinate)
         {
-                coordinate.x = Mathf.Clamp(coordinate.x, 0, grid.Width  - 1);
-                coordinate.y = Mathf.Clamp(coordinate.y, 0, grid.Height - 1);
+            coordinate.x = Mathf.Clamp(coordinate.x, 0, grid.Width  - 1);
+            coordinate.y = Mathf.Clamp(coordinate.y, 0, grid.Height - 1);
 
-                return coordinate;
+            return coordinate;
+        }
+
+        public static Vector2Int ChooseRandomCoordinate(this IGrid2D<int> grid, IRNG numberGenerator = null)
+        {
+            if (numberGenerator == null)
+                numberGenerator = UnityRandom.Instance;
+
+            return new Vector2Int
+            {
+                x = numberGenerator.Range(grid.Width),
+                y = numberGenerator.Range(grid.Height)
+            };
         }
     }
 }
