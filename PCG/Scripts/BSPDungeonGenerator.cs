@@ -5,7 +5,6 @@ using Chinchillada.Foundation;
 using Chinchillada.Grid;
 using UnityEngine;
 using Utilities.Algorithms;
-using Random = Chinchillada.Foundation.Random;
 
 namespace Chinchillada.Generation.Grid
 {

@@ -3,7 +3,6 @@ using Chinchillada.Foundation;
 using Chinchillada.Grid;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using Random = Chinchillada.Foundation.Random;
 
 namespace Chinchillada.Generation.Grid
 {
@@ -12,6 +11,8 @@ namespace Chinchillada.Generation.Grid
         [SerializeField] private int iterations;
 
         [SerializeField, FindComponent] private IAsyncGenerator<Grid2D> gridGenerator;
+
+        [SerializeField] private IRNG random = new UnityRandom();
 
         private Grid2D grid;
 
@@ -50,11 +51,11 @@ namespace Chinchillada.Generation.Grid
         [Button]
         private void Zoom()
         {
-            this.grid = RandomizedZoom(this.grid);
+            this.grid = RandomizedZoom(this.grid, this.random);
             this.OnGenerated(this.grid);
         }
 
-        public static Grid2D RandomizedZoom(Grid2D grid)
+        public static Grid2D RandomizedZoom(Grid2D grid, IRNG random)
         {
             var newWidth = grid.Width * 2 - 1;
             var newHeight = grid.Height * 2 - 1;
@@ -81,12 +82,12 @@ namespace Chinchillada.Generation.Grid
                 nextGrid[newX + 2, newY + 2] = bottomRight;
 
                 // Choose sides
-                nextGrid[newX + 1, newY] = Random.Choose(topLeft, topRight);
-                nextGrid[newX, newY + 1] = Random.Choose(topLeft, bottomLeft);
-                nextGrid[newX + 1, newY + 2] = Random.Choose(bottomLeft, bottomRight);
-                nextGrid[newX + 2, newY + 1] = Random.Choose(topRight, bottomRight);
+                nextGrid[newX       + 1, newY]     = random.Choose(topLeft, topRight);
+                nextGrid[newX, newY + 1]           = random.Choose(topLeft, bottomLeft);
+                nextGrid[newX       + 1, newY + 2] = random.Choose(bottomLeft, bottomRight);
+                nextGrid[newX       + 2, newY + 1] = random.Choose(topRight, bottomRight);
 
-                nextGrid[newX + 1, newY + 1] = Random.Choose(topLeft, topRight, bottomLeft, bottomRight);
+                nextGrid[newX + 1, newY + 1] = random.Choose(topLeft, topRight, bottomLeft, bottomRight);
             }
 
             return nextGrid;
