@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Chinchillada.Grid
 {
-    using Foundation.RNG;
+    using Chinchillada;
 
     public interface IGrid2D<T>
     {
@@ -53,8 +53,7 @@ namespace Chinchillada.Grid
 
         public static Vector2Int ChooseRandomCoordinate(this IGrid2D<int> grid, IRNG numberGenerator = null)
         {
-            if (numberGenerator == null)
-                numberGenerator = UnityRandom.Instance;
+            numberGenerator ??= new UnityRandom();
 
             return new Vector2Int
             {
