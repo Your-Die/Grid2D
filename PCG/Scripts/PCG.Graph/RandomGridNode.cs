@@ -14,7 +14,7 @@ namespace Generators.Grid
 
         protected override Grid2D GenerateGrid()
         {
-            return RandomGridGenerator.GenerateGrid(this.width, this.height, this.fillDistribution);
+            return RandomGridGenerator.GenerateGrid(this.width, this.height, this.fillDistribution, this.Random);
         }
 
         protected override void UpdateInputs()

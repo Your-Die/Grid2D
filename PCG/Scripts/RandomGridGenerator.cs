@@ -5,6 +5,8 @@ using UnityEngine;
 
 namespace Chinchillada.Generation.Grid
 {
+    using System.Runtime.CompilerServices;
+
     public class RandomGridGenerator : AsyncGeneratorComponentBase<Grid2D>
     {
         [SerializeField] private int width = 10;
@@ -19,16 +21,16 @@ namespace Chinchillada.Generation.Grid
 
         protected override Grid2D GenerateInternal()
         {
-            return GenerateGrid(this.width, this.height, this.valueDistribution);
+            return GenerateGrid(this.width, this.height, this.valueDistribution, this.Random);
         }
 
-        public static Grid2D GenerateGrid(int width, int height, IDistribution<int> valueDistribution)
+        public static Grid2D GenerateGrid(int width, int height, IDistribution<int> valueDistribution, IRNG random)
         {
             var items = new int[width, height];
 
             for (var x = 0; x < width; x++)
             for (var y = 0; y < height; y++)
-                items[x, y] = valueDistribution.Sample();
+                items[x, y] = valueDistribution.Sample(random);
             
             return new Grid2D(items);
         }

@@ -9,6 +9,8 @@ using XNode;
 
 namespace Generators.Grid
 {
+    using Chinchillada;
+
     public class FloodFillNode : GridGeneratorNode
     {
         [SerializeField, Input] private Grid2D grid;
@@ -40,7 +42,7 @@ namespace Generators.Grid
                 if (output[x, y] >= 0)
                     continue;
 
-                var value = this.valueSelector.SelectValue(this.regionCount++);
+                var value = this.valueSelector.SelectValue(this.regionCount++, this.Random);
                 FloodFill(output, x, y, value);
             }
 
@@ -84,13 +86,13 @@ namespace Generators.Grid
 
     public interface IValueSelector
     {
-        int SelectValue(int regionIndex);
+        int SelectValue(int regionIndex, IRNG random);
     }
 
     [Serializable]
     public class IncrementalValues : IValueSelector
     {
-        public int SelectValue(int regionIndex) => regionIndex;
+        public int SelectValue(int regionIndex, IRNG random) => regionIndex;
     }
 
     [Serializable]
@@ -98,7 +100,7 @@ namespace Generators.Grid
     {
         [SerializeField] private IDistribution<int> values;
 
-        public int SelectValue(int regionIndex) => this.values.Sample();
+        public int SelectValue(int regionIndex, IRNG random) => this.values.Sample(random);
     }
 
     [Serializable]
@@ -106,7 +108,7 @@ namespace Generators.Grid
     {
         [SerializeField] private IList<int> values;
 
-        public int SelectValue(int regionIndex)
+        public int SelectValue(int regionIndex, IRNG random)
         {
             var valueIndex = regionIndex % this.values.Count;
             return this.values[valueIndex];

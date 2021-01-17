@@ -21,7 +21,7 @@ namespace Chinchillada.Generation.Evolution.Grid
                 var shouldMutate = random.Flip(this.pixelMutationChance);
                 
                 grid[x, y] = shouldMutate 
-                ? this.valueDistribution.Sample()
+                ? this.valueDistribution.Sample(random)
                 : parent[x, y];
             }
 
