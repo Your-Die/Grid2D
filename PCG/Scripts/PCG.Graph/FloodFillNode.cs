@@ -5,7 +5,7 @@ using Chinchillada.Distributions;
 using Chinchillada.Generation.Grid;
 using Chinchillada.Grid;
 using UnityEngine;
-using XNode;
+using xNode;
 
 namespace Generators.Grid
 {
