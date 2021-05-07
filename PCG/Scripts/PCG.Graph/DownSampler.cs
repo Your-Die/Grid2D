@@ -1,7 +1,6 @@
-﻿using Chinchillada.Foundation;
+﻿using Chinchillada;
 using Chinchillada.Generation.Grid;
 using Chinchillada.Grid;
-using Foundation;
 using UnityEngine;
 
 namespace Generators.Grid

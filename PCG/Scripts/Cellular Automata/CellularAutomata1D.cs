@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Foundation.Algorithms;
+using Chinchillada;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

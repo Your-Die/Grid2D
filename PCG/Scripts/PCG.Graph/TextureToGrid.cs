@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using Chinchillada.Colorscheme;
-using Chinchillada.Foundation;
+using Chinchillada;
 using Chinchillada.Grid;
 using UnityEngine;
 

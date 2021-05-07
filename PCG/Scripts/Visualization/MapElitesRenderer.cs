@@ -1,5 +1,5 @@
 ﻿using Chinchillada.Generation.Evolution;
-using Chinchillada.Foundation;
+using Chinchillada;
 using Chinchillada.Grid;
 using Chinchillada.Grid.Visualization;
 using Sirenix.OdinInspector;

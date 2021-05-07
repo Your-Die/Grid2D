@@ -1,4 +1,4 @@
-using Chinchillada.Foundation;
+using Chinchillada;
 using UnityEngine;
 
 namespace Chinchillada.Grid.Visualization

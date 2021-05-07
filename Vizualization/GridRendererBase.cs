@@ -1,5 +1,5 @@
 using System;
-using Chinchillada.Foundation;
+using Chinchillada;
 
 namespace Chinchillada.Grid.Visualization
 {

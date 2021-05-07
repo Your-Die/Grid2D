@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Chinchillada.Foundation;
+using Chinchillada;
 using Chinchillada.Grid;
 using UnityEngine;
 

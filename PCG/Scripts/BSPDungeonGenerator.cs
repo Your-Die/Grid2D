@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Chinchillada.Generation.BSP;
-using Chinchillada.Foundation;
+using Chinchillada;
 using Chinchillada.Grid;
 using UnityEngine;
 using Utilities.Algorithms;

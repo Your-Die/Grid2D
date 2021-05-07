@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Chinchillada.Colorscheme;
-using Chinchillada.Foundation;
+using Chinchillada;
 using UnityEngine;
 
 namespace Chinchillada.Grid.Visualization
