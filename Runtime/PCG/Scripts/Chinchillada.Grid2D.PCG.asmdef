@@ -1,0 +1,20 @@
+{
+    "name": "Chinchillada.Grid2D.PCG",
+    "rootNamespace": "",
+    "references": [
+        "Chinchillada.Foundation.Runtime",
+        "Chinchillada.Distributions",
+        "Chinchillada.PCG",
+        "Chinchillada.Grid2D",
+        "Chinchillada.AutoRef.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

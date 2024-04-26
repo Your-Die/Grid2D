@@ -1,0 +1,23 @@
+{
+    "name": "Chinchillada.Grid2D.PCG.Graph",
+    "rootNamespace": "",
+    "references": [
+        "Chinchillada.Foundation.Runtime",
+        "Chinchillada.Distributions",
+        "Chinchillada.PCG",
+        "Chinchillada.Grid2D",
+        "Chinchillada.Grid2D.PCG",
+        "Chinchillada.Grid2D.Visualization",
+        "com.alelievr.NodeGraphProcessor.Runtime",
+        "Chinchillada.PCGraph.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
