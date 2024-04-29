@@ -13,9 +13,9 @@ namespace Chinchillada.PCGraphs.Grid
     {
         [SerializeField, Input] private int rowCount;
 
-        [SerializeField, Input] private List<int> firstRow;
+        [SerializeField] private List<int> firstRow;
         
-        [SerializeField] private IntCellularAutomata1D automaton;
+        [SerializeField, Input] private IntCellularAutomata1D automaton;
 
         protected override IEnumerable<Grid2D<int>> GenerateAsync()
         {
