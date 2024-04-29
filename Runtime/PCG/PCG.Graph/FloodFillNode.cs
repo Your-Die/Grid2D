@@ -5,7 +5,7 @@ using Chinchillada.Grid;
 using GraphProcessor;
 using UnityEngine;
 
-namespace Chinchillada.PCGraphs.Grid
+namespace Chinchillada.Grid.PCGraphs
 {
     using Chinchillada;
 
@@ -14,8 +14,12 @@ namespace Chinchillada.PCGraphs.Grid
     {
         [Input] public IValueSelector valueSelector = new IncrementalValues();
 
+        [Input] public INeighborhoodFactory neighborhoodFactory = new Diagonal.Factory();
+        
         [SerializeField, Output] private int regionCount;
 
+        
+        
         public IRNG RNG { get; set; }
 
         public override int ExpectedIterations => this.inputGrid.Width * this.inputGrid.Height;
@@ -26,25 +30,25 @@ namespace Chinchillada.PCGraphs.Grid
             var outputGrid = InitializeGrid(grid);
             this.regionCount = 0;
 
-            for (var x = 0; x < grid.Width; x++)
-            for (var y = 0; y < grid.Height; y++)
+            for (int x = 0; x < grid.Width; x++)
+            for (int y = 0; y < grid.Height; y++)
             {
                 if (outputGrid[x, y] >= 0)
                     continue;
 
-                var value = this.valueSelector.SelectValue(this.regionCount++, this.RNG);
-                FloodFill(outputGrid, x, y, value);
+                int value = this.valueSelector.SelectValue(this.regionCount++, this.RNG);
+                this.FloodFill(outputGrid, x, y, value);
                 yield return outputGrid;
             }
 
             yield return outputGrid;
         }
 
-        private static void FloodFill(Grid2D<int> grid, int x, int y, int value)
+        private void FloodFill(IGrid2D<int> grid, int x, int y, int value)
         {
             var queue = new Queue<Vector2Int>();
 
-            var startValue = grid[x, y];
+            int startValue = grid[x, y];
             var startNode = new Vector2Int(x, y);
             queue.Enqueue(startNode);
 
@@ -53,9 +57,10 @@ namespace Chinchillada.PCGraphs.Grid
                 var node = queue.Dequeue();
                 grid[node.x, node.y] = value;
 
-                foreach (var (neighbor, _) in grid.GetNeighbors(node))
+                var neighbors = neighborhoodFactory.Get(grid, node);
+                foreach (Vector2Int neighbor in neighbors)
                 {
-                    var neighborValue = grid[neighbor.x, neighbor.y];
+                    int neighborValue = grid[neighbor];
 
                     if (neighborValue.Equals(startValue))
                         queue.Enqueue(neighbor);

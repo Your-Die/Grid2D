@@ -2,7 +2,7 @@
 using Chinchillada.Grid;
 using GraphProcessor;
 
-namespace Chinchillada.PCGraphs.Grid
+namespace Chinchillada.Grid.PCGraphs
 {
     public abstract class IntGridModifierNode : IntGridGeneratorNode
     {

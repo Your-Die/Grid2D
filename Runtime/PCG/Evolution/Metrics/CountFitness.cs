@@ -13,7 +13,7 @@ namespace Chinchillada.PCG.Evolution.Grid
 
         public float Evaluate(Grid2D<int> grid)
         {
-            var targetCount = grid.Count(item => item == this.targetType);
+            int targetCount = grid.Values.Count(item => item == this.targetType);
             return (float) targetCount / grid.Size;
         }
     }

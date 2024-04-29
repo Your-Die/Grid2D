@@ -5,7 +5,7 @@ using Chinchillada.PCG.Grid;
 using GraphProcessor;
 using UnityEngine;
 
-namespace Chinchillada.PCGraphs.Grid
+namespace Chinchillada.Grid.PCGraphs
 {
     [Serializable,NodeMenuItem("Ints/Grids/Smooth Noise")]
     public class SmoothNoiseNode : IntGridModifierNode

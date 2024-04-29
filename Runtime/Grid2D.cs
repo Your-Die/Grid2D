@@ -1,30 +1,35 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Chinchillada.Grid
 {
     [Serializable]
-    public class Grid2D<T> : IEnumerable<T>, IGrid2D<T>
+    public class Grid2D<T> : IGrid2D<T>
     {
-        [SerializeField] private T[,] items;
+        private readonly T[,] items;
 
-        [SerializeField] private int width;
+        public int Height { get; }
 
-        [SerializeField] private int height;
-
-        public int Height => this.height;
+        public int Width { get; }
 
         public int Size => this.Width * this.Height;
 
         public Vector2Int Shape => new(this.Width, this.Height);
 
-        public int Width
+
+        public IEnumerable<Vector2Int> Coordinates
         {
-            get => this.width;
-            set => this.width = value;
+            get
+            {
+                for (int x = 0; x < this.Width; x++)
+                for (int y = 0; y < this.Height; y++)
+                    yield return new Vector2Int(x, y);
+            }
         }
+
+        public IEnumerable<T> Values => this.Coordinates.Select(coordinate => this[coordinate]);
 
         public T this[int x, int y]
         {
@@ -38,86 +43,98 @@ namespace Chinchillada.Grid
             set => this[position.x, position.y] = value;
         }
 
-        public Grid2D()
+        public Grid2D(int width, int height, T value) : this(width, height, () => value)
         {
         }
 
-        public Grid2D(int width, int height, T value) 
-            : this(width, height, () => value)
+        public Grid2D(int width, int height, Func<T> valueInitializer) : this(width, height)
         {
-        }
-
-        public Grid2D(int width, int height, Func<T> valueInitializer)
-        {
-            this.width = width;
-            this.height = height;
-
-            this.items = new T[this.width, this.height];
-
-            for (var x = 0; x < width; x++)
-            for (var y = 0; y < this.height; y++)
+            for (int x = 0; x < width; x++)
+            for (int y = 0; y < this.Height; y++)
                 this.items[x, y] = valueInitializer.Invoke();
         }
-        
-        public Grid2D(T[,] items)
-        {
-            this.Width = items.GetLength(0);
-            this.height = items.GetLength(1);
 
-            this.items = items;
+        public Grid2D(Vector2Int shape) : this(shape.x, shape.y)
+        {
         }
 
         public Grid2D(int width, int height)
         {
             this.Width = width;
-            this.height = height;
+            this.Height = height;
 
             this.items = new T[width, height];
         }
 
-        public Grid2D(Vector2Int shape)
-            : this(shape.x, shape.y)
+        public Grid2D(T[,] items)
         {
-        }
+            this.Width = items.GetLength(0);
+            this.Height = items.GetLength(1);
 
+            this.items = items;
+        }
 
 
         public Grid2D<T> Copy()
         {
-            var itemsCopy = this.CopyItems();
+            var itemsCopy = (T[,])this.items.Clone();
             return new Grid2D<T>(itemsCopy);
         }
 
-        public T[,] CopyItems()
-        {
-            var copy = new T[this.width, this.height];
-            
-            for (var x = 0; x < this.width; x++)
-            for (var y = 0; y < this.height; y++)
-                copy[x, y] = this.items[x, y];
-
-            return copy;
-        }
-        
         public Grid2D<T> CopyShape() => new(this.Width, this.Height);
 
         public Grid2D<TOutput> CopyShape<TOutput>() => new(this.Width, this.Height);
 
-        public bool Contains(Vector2Int position)
+        public bool MatchesShape(Grid2D<T> other) => this.Width == other.Width && this.Height == other.Height;
+
+        public bool Contains(Vector2Int position) => this.Contains(position.x, position.y);
+        public bool Contains(int x, int y) => this.ContainsX(x) && this.ContainsY(y);
+        public bool ContainsX(int x) => x >= 0 && x < this.Width;
+        public bool ContainsY(int y) => y >= 0 && y < this.Height;
+        
+        public override string ToString() => $"{typeof(T)}[{this.Width}, {this.Height}]";
+        
+        #region IEquality
+
+        public bool Equals(Grid2D<T> other)
         {
-            return position.x >= 0 && position.x < this.Width &&
-                   position.y >= 0 && position.y < this.Height;
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+
+            // Compare dimensions
+            if (this.Width != other.Width || this.Height != other.Height)
+                return false;
+
+            // Compare contents.
+            for (int x = 0; x < this.Width; x++)
+            for (int y = 0; y < this.Height; y++)
+            {
+                if (!Equals(this[x, y], other[x, y]))
+                    return false;
+            }
+
+            return true;
         }
 
-        public GridNeighborhood GetRegion(int x, int y, int radius) => new(this, x, y, radius);
-
-        public IEnumerator<T> GetEnumerator()
+        public override bool Equals(object obj)
         {
-            for (var x = 0; x < this.Width; x++)
-            for (var y = 0; y < this.Height; y++)
-                yield return this[x, y];
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return this.Equals((Grid2D<T>)obj);
         }
 
-        IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hashCode = (this.items != null ? this.items.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ this.Width;
+                hashCode = (hashCode * 397) ^ this.Height;
+                return hashCode;
+            }
+        }
+
+        #endregion
     }
 }

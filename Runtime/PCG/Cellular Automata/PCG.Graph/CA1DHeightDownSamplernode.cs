@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Chinchillada.CellularAutomata;
-using Chinchillada.Grid;
 using GraphProcessor;
 using UnityEngine;
 
-namespace Chinchillada.PCGraphs.Grid
+namespace Chinchillada.Grid.PCGraphs
 {
     [Serializable, NodeMenuItem("Ints/Grids/CA1 Height Down Sampler")] 
     public class CA1DHeightDownSamplernode : IntGridModifierNode

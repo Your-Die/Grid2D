@@ -1,5 +1,6 @@
 {
-    "name": "Chinchillada.Grid2D",
+    "name": "Chinchillada.Grid2D.Runtime",
+    "rootNamespace": "Chinchillada.Grids",
     "references": [
         "GUID:1eaec2d7d70f722408cb2417d51f1005"
     ],

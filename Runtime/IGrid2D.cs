@@ -6,7 +6,7 @@ namespace Chinchillada.Grid
     public interface IGrid2D
     {
         int Height { get; }
-        int Width { get; set; }
+        int Width { get; }
     }
 
     public interface IGrid2D<T> : IGrid2D

@@ -5,7 +5,7 @@ using Chinchillada.Grid;
 using GraphProcessor;
 using UnityEngine;
 
-namespace Chinchillada.PCGraphs.Grid
+namespace Chinchillada.Grid.PCGraphs
 {
     [Serializable, NodeMenuItem("Ints/Grids/CA1D Width Down Sampler")]
     public class CA1WidthDownSamplerNode : IntGridModifierNode

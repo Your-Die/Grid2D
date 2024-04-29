@@ -4,7 +4,7 @@ using Chinchillada.Grid;
 using GraphProcessor;
 using UnityEngine;
 
-namespace Chinchillada.PCGraphs.Grid
+namespace Chinchillada.Grid.PCGraphs
 {
     [Serializable, NodeMenuItem("Ints/Grids/Random")]
     public class RandomGridNode : IntGridGeneratorNode, IUsesRNG

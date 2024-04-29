@@ -5,7 +5,7 @@ namespace Chinchillada.PCGraphs.Editor
     using System.Collections.Generic;
     using System.Linq;
     using GraphProcessor;
-    using Grid;
+    using Grid.PCGraphs;
     using JetBrains.Annotations;
     using UnityEngine;
 
@@ -24,7 +24,7 @@ namespace Chinchillada.PCGraphs.Editor
         {
             this.colorsByValue.Clear();
             
-            var distinctValues = grid.Distinct().ToArray();
+            var distinctValues = grid.Values.Distinct().ToArray();
 
             for (var index = 0; index < distinctValues.Length; index++)
             {

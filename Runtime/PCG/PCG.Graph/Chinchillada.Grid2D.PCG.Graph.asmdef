@@ -9,7 +9,10 @@
         "Chinchillada.Grid2D.PCG",
         "Chinchillada.Grid2D.Visualization",
         "com.alelievr.NodeGraphProcessor.Runtime",
-        "Chinchillada.PCGraph.Runtime"
+        "Chinchillada.PCGraph.Runtime",
+        "UnityEditor.UI",
+        "UnityEngine.UI",
+        "Chinchillada.Grid2D.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

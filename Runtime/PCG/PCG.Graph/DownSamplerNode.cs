@@ -5,7 +5,7 @@ using Chinchillada.Grid;
 using GraphProcessor;
 using UnityEngine;
 
-namespace Chinchillada.PCGraphs.Grid
+namespace Chinchillada.Grid.PCGraphs
 {
     [Serializable, NodeMenuItem("Ints/Grids/Down Sampler")]
     public class DownSamplerNode : IntGridGeneratorNode
