@@ -21,7 +21,7 @@ namespace Chinchillada.PCG.Evolution.Grid
             for (int y = 0; y < grid.Height; y++)
             {
                 int value = grid[x, y];
-                int sameNeighbors = CountingRule.CountNeighborhood(x, y, grid, value, 1, this.neighborhoodFactory);
+                int sameNeighbors = CountingRule<int>.CountNeighborhood(x, y, grid, value, this.neighborhoodFactory);
 
                 dictionary[value] += 1 + sameNeighbors;
             }

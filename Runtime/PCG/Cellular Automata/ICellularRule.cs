@@ -2,8 +2,8 @@ using Chinchillada.Grid;
 
 namespace Chinchillada.PCG.Grid
 {
-    public interface ICellularRule
+    public interface ICellularRule<T>
     {
-        int Apply(int x, int y, Grid2D<int> grid);
+        T Apply(int x, int y, Grid2D<T> grid);
     }
 }

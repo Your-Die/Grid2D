@@ -8,24 +8,21 @@ using UnityEngine;
 namespace Chinchillada.PCG.Grid
 {
     [Serializable]
-    public class CountingRule : ICellularRule
+    public class CountingRule<T> : ICellularRule<T>
     {
         [SerializeField, UsedImplicitly] private string name;
 
-        [SerializeField] private int output;
-
-        [Header("Neighborhood")] [SerializeField]
-        private int radius = 1;
-
-        [SerializeReference] private INeighborhoodFactory neighborhoodFactory = new Diagonal.Factory();
-
-        [SerializeField] private int constraintTarget = 0;
+        [SerializeField] private T output;
+        
+        [SerializeField] private int targetValue = 0;
 
         [SerializeField] private CountConstraint constraint = new();
 
-        public int Apply(int x, int y, Grid2D<int> grid)
+        [SerializeReference] private INeighborhoodFactory neighborhoodFactory = new Diagonal.Factory();
+
+        public T Apply(int x, int y, Grid2D<T> grid)
         {
-            int count = CountNeighborhood(x, y, grid, this.constraintTarget, this.radius, this.neighborhoodFactory);
+            int count = CountNeighborhood(x, y, grid, this.targetValue, this.neighborhoodFactory);
             bool shouldApply = this.constraint.ValidateConstraint(count);
 
             return shouldApply ? this.output : grid[x, y];
@@ -33,15 +30,14 @@ namespace Chinchillada.PCG.Grid
 
         public static int CountNeighborhood(int x,
                                             int y,
-                                            Grid2D<int> grid,
+                                            Grid2D<T> grid,
                                             int targetValue,
-                                            int radius,
                                             INeighborhoodFactory neighborhoodFactory)
         {
             GridNeighborhood neighborhood = neighborhoodFactory.Get(grid, x, y);
 
             return neighborhood.Select(neighbor => grid[neighbor])
-                               .Count(neighbor => neighbor == targetValue);
+                               .Count(neighbor => neighbor.Equals(targetValue));
         }
     }
 }
