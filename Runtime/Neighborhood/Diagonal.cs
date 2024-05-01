@@ -22,7 +22,7 @@ namespace Chinchillada.Grid
         }
         
         [Serializable]
-        public class Factory : NeighborhoodFactory
+        public class Factory : NeighborhoodFactory<Diagonal>
         {
             protected override GridNeighborhood Get(IGrid2D grid, int centerX, int centerY, int radius, bool includeCenter)
             {

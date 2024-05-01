@@ -41,7 +41,9 @@ namespace Chinchillada.PCG.Grid
                     throw new ArgumentOutOfRangeException();
             }
         }
-        
+
+        public override string ToString() => $"{this.constraintOperator} {this.constraintAmount}";
+
         /// <summary>
         /// Comparison operators.
         /// </summary>

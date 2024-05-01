@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Chinchillada.Grid;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Chinchillada.PCG.Grid
@@ -10,8 +8,6 @@ namespace Chinchillada.PCG.Grid
     [Serializable]
     public class CountingRule<T> : ICellularRule<T>
     {
-        [SerializeField, UsedImplicitly] private string name;
-
         [SerializeField] private T output;
         
         [SerializeField] private int targetValue = 0;
@@ -19,6 +15,18 @@ namespace Chinchillada.PCG.Grid
         [SerializeField] private CountConstraint constraint = new();
 
         [SerializeReference] private INeighborhoodFactory neighborhoodFactory = new Diagonal.Factory();
+
+        public CountingRule()
+        {
+        }
+
+        public CountingRule(T output, int targetValue, CountConstraint constraint, INeighborhoodFactory neighborhood)
+        {
+            this.output = output;
+            this.targetValue = targetValue;
+            this.constraint = constraint;
+            this.neighborhoodFactory = neighborhood;
+        }
 
         public T Apply(int x, int y, Grid2D<T> grid)
         {
@@ -38,6 +46,11 @@ namespace Chinchillada.PCG.Grid
 
             return neighborhood.Select(neighbor => grid[neighbor])
                                .Count(neighbor => neighbor.Equals(targetValue));
+        }
+
+        public override string ToString()
+        {
+            return $"count({this.targetValue}) {this.constraint} in [{this.neighborhoodFactory}] -> {this.output}";
         }
     }
 }
