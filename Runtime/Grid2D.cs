@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Chinchillada.Grid
 {
@@ -73,7 +74,13 @@ namespace Chinchillada.Grid
 
             this.items = items;
         }
-
+        
+        public void Write(T[] flatGrid)
+        {
+            for (var y = 0; y < this.height; y++)
+            for (var x = 0; x < this.width; x++)
+                this.items[x, y] = flatGrid[x + y * this.width];
+        }
 
         public Grid2D<T> Copy()
         {
