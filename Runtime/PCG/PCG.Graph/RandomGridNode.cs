@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Chinchillada.Grid.PCGraphs
 {
-    [Serializable, NodeMenuItem("Ints/Grids/Random")]
+    [Serializable, NodeMenuItem("Grid/Int/Random")]
     public class RandomGridNode : IntGridGeneratorNode, IUsesRNG
     {
         [SerializeField, Input] private int width = 10;

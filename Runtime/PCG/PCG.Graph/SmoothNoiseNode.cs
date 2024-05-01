@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Chinchillada.Grid;
 using Chinchillada.PCG.Grid;
 using GraphProcessor;
 using UnityEngine;
 
 namespace Chinchillada.Grid.PCGraphs
 {
-    [Serializable,NodeMenuItem("Ints/Grids/Smooth Noise")]
+    [Serializable, NodeMenuItem("Grid/Int/Smooth Noise")]
     public class SmoothNoiseNode : IntGridModifierNode
     {
         [SerializeField, Input] private int samplePeriod;

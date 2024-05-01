@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using Chinchillada;
-using Chinchillada.Grid;
+using Chinchillada.PCGraphs;
 using GraphProcessor;
 using UnityEngine;
 
 namespace Chinchillada.Grid.PCGraphs
 {
-    [Serializable, NodeMenuItem("Ints/Grids/Down Sampler")]
+    [Serializable, NodeMenuItem("Grid/Int/Down Sampler")]
     public class DownSamplerNode : IntGridGeneratorNode
     {
         [SerializeField, Input] private Grid2D<int> grid;
 
-        [SerializeField, Input] private Vector2Int windowShape;
+        [SerializeField, Input, ShowAsDrawer] private Vector2Int windowShape;
 
-        [SerializeField] private IWindowSampler<int> windowSampler;
+        [Input] public IWindowSampler<int> windowSampler;
 
         protected override IEnumerable<Grid2D<int>> GenerateAsync()
         {
@@ -27,7 +26,7 @@ namespace Chinchillada.Grid.PCGraphs
             var maxX = this.grid.Width - windowX;
             var maxY = this.grid.Height - windowY;
 
-            for (var x = 0; x < maxX; x+= windowX)
+            for (var x = 0; x < maxX; x += windowX)
             for (var y = 0; y < maxY; y += windowY)
             {
                 var outputX = x / windowX;
@@ -37,6 +36,32 @@ namespace Chinchillada.Grid.PCGraphs
             }
 
             yield return outputGrid;
+        }
+    }
+
+    [Serializable, NodeMenuItem("Grid/Int/Window Sampler")]
+    public class IntWindowSamplerNode : GeneratorNode<IWindowSampler<int>>
+    {
+        [ShowAsDrawer, Input] public Sampler samplerType;
+
+        public enum Sampler
+        {
+            RoundedMean,
+            Mode,
+            Random
+        }
+
+
+        public override IWindowSampler<int> Generate()
+        {
+            return this.samplerType switch
+            {
+                Sampler.RoundedMean => new RoundedMeanSampler(),
+                Sampler.Mode        => new ModeSampler<int>(),
+                Sampler.Random      => new RandomSampler<int>(),
+
+                _ => throw new ArgumentOutOfRangeException()
+            };
         }
     }
 }

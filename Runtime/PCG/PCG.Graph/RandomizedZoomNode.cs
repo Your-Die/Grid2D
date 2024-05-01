@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Chinchillada.Grid.PCGraphs
 {
-    [Serializable, NodeMenuItem("Ints/Grids/Randomized Zoom")]
+    [Serializable, NodeMenuItem("Grid/Int/Randomized Zoom")]
     public class RandomizedZoomNode : IntGridModifierNode, IUsesRNG
     {
         [SerializeField, Input, ShowAsDrawer] private int iterations = 1;

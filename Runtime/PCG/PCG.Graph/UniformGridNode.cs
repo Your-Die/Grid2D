@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Chinchillada.Grid;
 using GraphProcessor;
 using UnityEngine;
 
 namespace Chinchillada.Grid.PCGraphs
 {
-    [Serializable, NodeMenuItem("Ints/Grids/Uniform")]
+    [Serializable, NodeMenuItem("Grid/Int/Uniform")]
     public class UniformGridNode : IntGridGeneratorNode, IUsesRNG
     {
         [SerializeField, Input, ShowAsDrawer] private int width;

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Chinchillada.Grid;
 using GraphProcessor;
 
 namespace Chinchillada.Grid.PCGraphs

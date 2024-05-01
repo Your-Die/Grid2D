@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Chinchillada.Grid;
 using GraphProcessor;
 
 namespace Chinchillada.Grid.PCGraphs
 {
-    [Serializable, NodeMenuItem("Grid Graph/Chunk Clearer")]
+    [Serializable, NodeMenuItem("Grid/Int/Chunk Clearer")]
     public class ChunkClearerNode : IntGridModifierNode
     {
         [Input, ShowAsDrawer] public int empty        = 0;

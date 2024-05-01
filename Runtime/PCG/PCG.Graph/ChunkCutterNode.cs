@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Chinchillada.Grid;
 using GraphProcessor;
 using UnityEngine;
 
 namespace Chinchillada.Grid.PCGraphs
 {
-    [Serializable, NodeMenuItem("Grid Graph/Chunk Cutter")]
+    [Serializable, NodeMenuItem("Grid/Int/Chunk Cutter")]
     public class ChunkCutterNode : IntGridModifierNode, IUsesRNG
     {
         [Input, ShowAsDrawer] public int          empty        = 0;

@@ -9,7 +9,7 @@ namespace Chinchillada.Grid.PCGraphs
 {
     using Chinchillada;
 
-    [Serializable, NodeMenuItem("Ints/Grids/Flood Fill")]
+    [Serializable, NodeMenuItem("Grid/Int/Flood Fill")]
     public class FloodFillNode : IntGridModifierNode, IUsesRNG
     {
         [Input] public IValueSelector valueSelector = new IncrementalValues();
