@@ -25,9 +25,9 @@ namespace Chinchillada.Grid
             this.IncludeCenter = includeCenter;
 
             this.Left = Mathf.Max(centerX - radius, 0);
-            this.Top = Mathf.Max(centerY - radius, 0);
+            this.Bottom = Mathf.Max(centerY - radius, 0);
             this.Right = Mathf.Min(centerX + radius, grid.Width - 1);
-            this.Bottom = Mathf.Min(centerY + radius, grid.Height - 1);
+            this.Top = Mathf.Min(centerY + radius, grid.Height - 1);
         }
 
         public abstract IEnumerator<Vector2Int> GetEnumerator();
