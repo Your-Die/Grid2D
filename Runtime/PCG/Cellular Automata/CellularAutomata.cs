@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Chinchillada.Grid;
 using UnityEngine;
 
@@ -30,12 +31,11 @@ namespace Chinchillada.PCG.Grid
         {
             T value = grid[x, y];
 
-            for (int i = this.rules.Count - 1; i >= 0; i--)
+            for (var index = this.rules.Count - 1; index >= 0; index--)
             {
-                var rule = this.rules[i];
-                T newValue = rule.Apply(x, y, grid);
+                var rule = this.rules[index];
 
-                if (!newValue.Equals(value))
+                if (rule.Match(x, y, grid, out var newValue))
                     return newValue;
             }
 
