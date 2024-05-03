@@ -79,7 +79,10 @@ namespace Chinchillada.Grid
         {
             for (var y = 0; y < this.Height; y++)
             for (var x = 0; x < this.Width; x++)
-                this.items[x, y] = flatGrid[x + y * this.Width];
+            {
+                var invertedY = this.Height - (y + 1);
+                this.items[x, y] = flatGrid[x + invertedY * this.Width];
+            }
         }
 
         public Grid2D<T> Copy()
