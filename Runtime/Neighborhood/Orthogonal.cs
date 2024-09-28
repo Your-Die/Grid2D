@@ -32,6 +32,10 @@ namespace Chinchillada.Grid
         [Serializable]
         public class Factory : NeighborhoodFactory<Orthogonal>
         {
+            public Factory(int radius  = 1, bool includeCenter = true) : base(radius, includeCenter)
+            {
+            }
+            
             protected override GridNeighborhood Get(IGrid2D grid, int centerX, int centerY, int radius, bool includeCenter)
             {
                 return new Orthogonal(grid, centerX, centerY, radius, includeCenter);
