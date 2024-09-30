@@ -28,12 +28,12 @@ namespace Chinchillada.PCG.Grid
             this.neighborhoodFactory = neighborhood;
         }
 
-        public T Apply(int x, int y, Grid2D<T> grid)
+        public bool Match(int x, int y, Grid2D<T> grid, out T result)
         {
-            int count = CountNeighborhood(x, y, grid, this.targetValue, this.neighborhoodFactory);
-            bool shouldApply = this.constraint.ValidateConstraint(count);
-
-            return shouldApply ? this.output : grid[x, y];
+            result = this.output;
+            
+            var count = CountNeighborhood(x, y, grid, this.targetValue, this.neighborhoodFactory);
+            return this.constraint.ValidateConstraint(count);
         }
 
         public static int CountNeighborhood(int x,

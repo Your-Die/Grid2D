@@ -10,7 +10,8 @@
         "Chinchillada.PCGraph.Runtime",
         "UnityEditor.UI",
         "UnityEngine.UI",
-        "Chinchillada.Grid2D.Runtime"
+        "Chinchillada.Grid2D.Runtime",
+        "Chinchillada.Foundation.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

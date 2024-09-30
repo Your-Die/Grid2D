@@ -11,7 +11,16 @@ namespace Chinchillada.PCG.Grid
         [Header("Constraint")] [SerializeField]
         private int constraintAmount = 3;
 
-        
+        public CountConstraint()
+        {
+        }
+
+        public CountConstraint(ComparisonOperator @operator, int amount)
+        {
+            this.constraintOperator = @operator;
+            this.constraintAmount = amount;
+        }
+
         /// <summary>
         /// Validates the constraint.
         /// </summary>
@@ -47,7 +56,7 @@ namespace Chinchillada.PCG.Grid
         /// <summary>
         /// Comparison operators.
         /// </summary>
-        private enum ComparisonOperator
+        public enum ComparisonOperator
         {
             LesserThan,
             GreaterThan,

@@ -4,6 +4,6 @@ namespace Chinchillada.PCG.Grid
 {
     public interface ICellularRule<T>
     {
-        T Apply(int x, int y, Grid2D<T> grid);
+        bool Match(int x, int y, Grid2D<T> grid, out T result);
     }
 }
