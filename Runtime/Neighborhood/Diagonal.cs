@@ -14,7 +14,7 @@ namespace Chinchillada.Grid
         public override IEnumerator<Vector2Int> GetEnumerator()
         {
             for (int x = this.Left; x <= this.Right; x++)
-            for (int y = this.Top; y <= this.Bottom; y++)
+            for (int y = this.Bottom; y <= this.Top; y++)
             {
                 if (x != this.CenterX || y != this.CenterY || this.IncludeCenter)
                     yield return new Vector2Int(x, y);
